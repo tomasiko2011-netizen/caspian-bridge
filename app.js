@@ -316,7 +316,7 @@
             '<label class="field" for="calc-mode">' + t('mode') + '<select id="calc-mode">' + ['sea', 'rail', 'truck'].map((m) => '<option value="' + m + '"' + (state.calc.mode === m ? ' selected' : '') + '>' + t('m_' + m) + '</option>').join('') + '</select></label>' +
           '</div><div id="calc-out" class="calc-out"></div></section>' +
         '<section class="section" aria-labelledby="rfq-h"><h3 id="rfq-h">' + t('rfq') + '</h3>' +
-          '<form id="rfq-form" class="rfq-form" novalidate>' +
+          '<form id="rfq-form" class="rfq-form" novalidate><input type="hidden" name="pid" value="' + p.id + '"><input type="hidden" name="qty" value="' + (state.calc.qty || defaultQty(p)) + '"><input type="hidden" name="mode" value="' + state.calc.mode + '">' +
             '<div class="two"><label class="field" for="rfq-company">' + t('f_company') + '<input id="rfq-company" name="company" required></label>' +
               '<label class="field" for="rfq-country">' + t('f_country') + '<select id="rfq-country" name="country"><option value="kz"' + (p.dir === 'ir' ? ' selected' : '') + '>' + t('c_kz') + '</option><option value="ir"' + (p.dir === 'kz' ? ' selected' : '') + '>' + t('c_ir') + '</option><option value="other">' + t('c_other') + '</option></select></label></div>' +
             '<label class="field" for="rfq-contact">' + t('f_contact') + '<input id="rfq-contact" name="contact" required></label>' +
@@ -562,21 +562,23 @@
   });
   document.addEventListener('input', (e) => {
     if (e.target.id === 'f-search') { state.q = e.target.value; renderGrid(); }
-    if (e.target.id === 'calc-qty') { state.calc.qty = Math.max(0, Number(e.target.value) || 0); renderCalc(); }
+    if (e.target.id === 'calc-qty') { state.calc.qty = Math.max(0, Number(e.target.value) || 0); renderCalc(); const h = document.querySelector('#rfq-form input[name="qty"]'); if (h) h.value = state.calc.qty; }
   });
   document.addEventListener('change', (e) => {
     if (e.target.id === 'f-top') { state.top = e.target.checked; renderGrid(); }
     if (e.target.id === 'f-sort') { state.sort = e.target.value; renderGrid(); }
-    if (e.target.id === 'calc-mode') { state.calc.mode = e.target.value; renderCalc(); }
+    if (e.target.id === 'calc-mode') { state.calc.mode = e.target.value; renderCalc(); const h = document.querySelector('#rfq-form input[name="mode"]'); if (h) h.value = state.calc.mode; }
   });
   document.addEventListener('submit', (e) => {
     if (e.target.id !== 'rfq-form') return;
     e.preventDefault();
-    const f = e.target; const p = byId(state.open); if (!p) return;
+    const f = e.target; const p = byId(state.open) || byId(f.pid && f.pid.value); if (!p) { toast(state.lang === 'ru' ? 'Откройте товар и повторите' : 'Open a product and try again'); return; }
     const company = f.company.value.trim(), contact = f.contact.value.trim();
     if (!company || !contact) { toast(state.lang === 'ru' ? 'Заполните компанию и контакт' : 'Fill in company and contact'); (company ? f.contact : f.company).focus(); return; }
     const nextNum = 1045 + state.rfqs.filter((r) => !r.example).length;
-    const r = { id: 'RQ-' + nextNum, pid: p.id, qty: state.calc.qty || defaultQty(p), mode: state.calc.mode, company, country: f.country.value, contact, comment: f.comment.value.trim(), status: 'new', example: false, created: new Date().toISOString() };
+    const qty = (state.open === p.id && state.calc.qty) || Number(f.qty && f.qty.value) || defaultQty(p);
+    const mode = (state.open === p.id ? state.calc.mode : (f.mode && f.mode.value)) || 'sea';
+    const r = { id: 'RQ-' + nextNum, pid: p.id, qty: qty, mode: mode, company, country: f.country.value, contact, comment: f.comment.value.trim(), status: 'new', example: false, created: new Date().toISOString() };
     state.rfqs.push(r); saveRfqs();
     closeDrawer(); toast(t('sent')); setView('rfq');
   });
