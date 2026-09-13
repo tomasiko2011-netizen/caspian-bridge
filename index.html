@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caspian Bridge</title>
+<meta name="description" content="B2B-маркетплейс Иран ↔ Казахстан: 46 экспортных позиций, ориентировочные цены, расчёт партии с фрахтом и запрос котировки.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Golos+Text:wght@400;500;600&family=Vazirmatn:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 34%27%3E%3Crect width=%2734%27 height=%2734%27 rx=%279%27 fill=%27%2316394A%27/%3E%3Cpath d=%27M6 21c3-7 8-10 11-10s8 3 11 10%27 stroke=%27%23D9821B%27 stroke-width=%272.6%27 stroke-linecap=%27round%27 fill=%27none%27/%3E%3Cpath d=%27M6 25.5c2.2-1.6 4.4-1.6 6.6 0 2.2 1.6 4.4 1.6 6.6 0 2.2-1.6 4.4-1.6 6.6 0%27 stroke=%27%233FB6DB%27 stroke-width=%272.2%27 stroke-linecap=%27round%27 fill=%27none%27/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="brand" href="#" data-action="view" data-view="catalog" aria-label="Caspian Bridge">
+      <svg class="brand-mark" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+        <rect width="34" height="34" rx="9" fill="#16394A"/>
+        <path d="M6 21c3-7 8-10 11-10s8 3 11 10" stroke="#D9821B" stroke-width="2.6" stroke-linecap="round"/>
+        <path d="M6 25.5c2.2-1.6 4.4-1.6 6.6 0 2.2 1.6 4.4 1.6 6.6 0 2.2-1.6 4.4-1.6 6.6 0" stroke="#3FB6DB" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="17" cy="11" r="2.2" fill="#F2A03F"/>
+      </svg>
+      <span><span class="brand-name">Caspian Bridge</span><span class="brand-fa fa">پل خزر · Каспий көпірі</span></span>
+    </a>
+    <nav id="nav" class="nav" aria-label="Разделы"></nav>
+    <div class="controls">
+      <div id="cur" class="seg" role="group" aria-label="Валюта">
+        <button data-action="cur" data-cur="USD">USD</button>
+        <button data-action="cur" data-cur="KZT">KZT</button>
+        <button data-action="cur" data-cur="IRR">IRR</button>
+      </div>
+      <div id="lang" class="seg" role="group" aria-label="Язык">
+        <button data-action="lang" data-lang="ru">RU</button>
+        <button data-action="lang" data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker"><div id="ticker" class="wrap ticker-inner"></div></div>
+
+<main>
+  <section id="view-catalog" aria-label="Каталог">
+    <div id="hero" class="wrap hero"></div>
+    <div id="catalog" class="wrap catalog">
+      <aside id="filters" class="filters" aria-label="Фильтры"></aside>
+      <div>
+        <div id="grid-head" class="grid-head"></div>
+        <div id="grid" class="grid"></div>
+      </div>
+    </div>
+  </section>
+  <section id="view-rfq" class="wrap view" hidden></section>
+  <section id="view-logistics" class="wrap view" hidden></section>
+  <section id="view-about" class="wrap view" hidden></section>
+</main>
+
+<footer class="wrap foot"><span id="foot-l"></span><span id="foot-r"></span></footer>
+
+<div id="backdrop" class="backdrop" data-action="close"></div>
+<aside id="drawer" class="drawer" role="dialog" aria-modal="true" aria-label="Карточка товара"></aside>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="data.js"></script>
+<script src="credits.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
