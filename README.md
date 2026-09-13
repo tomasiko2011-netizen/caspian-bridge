@@ -2,7 +2,8 @@
 
 Демо B2B-маркетплейса для торговли Иран ↔ Казахстан: 46 позиций (29 Иран → КЗ, 17 КЗ → Иран), ориентировочные экспортные цены, расчёт партии с фрахтом через Каспий, заявки на котировку, логистика коридора.
 
-**Live:** https://tomasiko2011-netizen.github.io/caspian-bridge/
+**Live (Vercel):** https://caspian-bridge.vercel.app
+**Live (GitHub Pages):** https://tomasiko2011-netizen.github.io/caspian-bridge/
 
 ## Структура
 - `index.html` — разметка; `styles.css` — дизайн-токены и стили (светлая/тёмная тема)
@@ -17,4 +18,4 @@
 
 ## Деплой
 Статика без сборки. GitHub Pages собирается с ветки `codex/test`.
-Vercel: `vercel login`, затем `vercel --prod --yes` в папке проекта.
+Vercel (scope boss-projects, проект `caspian-bridge`): `vercel --prod --yes` в папке проекта.
