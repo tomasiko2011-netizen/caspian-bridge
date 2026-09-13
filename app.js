@@ -50,7 +50,7 @@
       d_price_note: 'ориентировочная цена, ', d_price_note2: 'уточняется котировкой',
       calc: 'Расчёт партии', qty: 'Количество', mode: 'Доставка',
       m_sea: 'Море: Актау / Курык → Бендер-Энзели', m_rail: 'Ж/д: Болашак → Инче-Бурун', m_truck: 'Авто: Алматы → Тегеран',
-      c_goods: 'Товар', c_freight: 'Фрахт (ориентир)', c_total: 'Итого', c_transit: 'транзит', c_note: 'Без пошлин, НДС и страхования. Для расчёта по контейнерам принят 1 × 40ft.', c_container: '1 × 40ft',
+      c_goods: 'Товар', c_freight: 'Фрахт (ориентир)', c_total: 'Итого', c_transit: 'транзит', c_note: 'Без пошлин, НДС и страхования. Минимальная ставка за отправку учтена; для контейнерных партий принят 1 × 40ft.', c_container: '1 × 40ft',
       rfq: 'Запросить котировку', f_company: 'Компания', f_country: 'Страна', f_contact: 'Телефон / WhatsApp / e-mail', f_comment: 'Комментарий', f_comment_ph: 'Упаковка, сроки, порт назначения, документы…',
       c_kz: 'Казахстан', c_ir: 'Иран', c_other: 'Другая', send: 'Отправить запрос', sent: 'Запрос сохранён в разделе «Заявки»',
       req_title: 'Заявки на котировку', req_lede: 'Запросы покупателей с этапами сделки. Примеры отмечены — их можно удалить. Новые заявки из каталога появляются здесь.',
@@ -88,7 +88,7 @@
       d_price_note: 'indicative price, ', d_price_note2: 'confirmed by quotation',
       calc: 'Lot calculator', qty: 'Quantity', mode: 'Transport',
       m_sea: 'Sea: Aktau / Kuryk → Bandar Anzali', m_rail: 'Rail: Bolashak → Incheh Borun', m_truck: 'Truck: Almaty → Tehran',
-      c_goods: 'Goods', c_freight: 'Freight (indicative)', c_total: 'Total', c_transit: 'transit', c_note: 'Excludes duties, VAT and insurance. Container lots assume 1 × 40ft.', c_container: '1 × 40ft',
+      c_goods: 'Goods', c_freight: 'Freight (indicative)', c_total: 'Total', c_transit: 'transit', c_note: 'Excludes duties, VAT and insurance. Minimum shipment charge applied; container lots assume 1 × 40ft.', c_container: '1 × 40ft',
       rfq: 'Request a quotation', f_company: 'Company', f_country: 'Country', f_contact: 'Phone / WhatsApp / e-mail', f_comment: 'Comment', f_comment_ph: 'Packaging, timing, destination port, documents…',
       c_kz: 'Kazakhstan', c_ir: 'Iran', c_other: 'Other', send: 'Send request', sent: 'Request saved under “Requests”',
       req_title: 'Requests for quotation', req_lede: 'Buyer requests with deal stages. Examples are marked and can be deleted. New requests from the catalogue appear here.',
@@ -146,7 +146,7 @@
     const fr = D.freight[mode];
     const goods = p.price == null ? null : p.price * qty;
     const tonnes = D.units[p.unit].tonnes ? qty * D.units[p.unit].tonnes : null;
-    const freight = tonnes != null ? tonnes * fr.perTonne : fr.per40ft;
+    const freight = tonnes != null ? Math.max(tonnes * fr.perTonne, fr.minCharge || 0) : fr.per40ft;
     return { goods, freight, total: goods == null ? null : goods + freight, days: fr.days, byContainer: tonnes == null };
   }
 

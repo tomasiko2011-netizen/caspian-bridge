@@ -4,9 +4,9 @@ window.CB_DATA = {
   asOf: '2026-09-13',
   fx: { usdKzt: 455, usdIrrOfficial: 1375000, usdIrrMarket: 2340000 },
   freight: {
-    sea:   { perTonne: 35,  per40ft: 2200, days: [10, 14] },
-    rail:  { perTonne: 75,  per40ft: 3200, days: [12, 18] },
-    truck: { perTonne: 300, per40ft: 5000, days: [7, 10] }
+    sea:   { perTonne: 35,  per40ft: 2200, minCharge: 350, days: [10, 14] },
+    rail:  { perTonne: 75,  per40ft: 3200, minCharge: 500, days: [12, 18] },
+    truck: { perTonne: 300, per40ft: 5000, minCharge: 900, days: [7, 10] }
   },
   cats: {
     fruits:   { ru: 'Фрукты',            en: 'Fruit' },
