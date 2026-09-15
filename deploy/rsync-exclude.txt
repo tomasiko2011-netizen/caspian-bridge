@@ -1,0 +1,12 @@
+.git
+.gitignore
+.vercel
+.vercelignore
+.playwright-mcp
+.DS_Store
+screens
+deploy
+dist
+artifact.html
+credits.json
+README.md

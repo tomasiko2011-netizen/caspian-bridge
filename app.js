@@ -1,11 +1,11 @@
-/* Caspian Bridge — demo marketplace app (vanilla JS, no build step) */
+/* Khazar Bridge — demo marketplace app (vanilla JS, no build step) */
 (function () {
   'use strict';
 
   /* ── config ─────────────────────────────────────────────────── */
   const CONFIG = {
     whatsapp: '',            // номер для приёма заявок, формат 77XXXXXXXXX (пусто — кнопка скрыта)
-    brand: 'Caspian Bridge'
+    brand: 'Khazar Bridge'
   };
 
   const D = window.CB_DATA;
@@ -63,7 +63,7 @@
       lg_sea_for: 'зерно, мука, битум, стройматериалы, металлы — навал и контейнеры', lg_rail_for: 'вагонные партии: зерно, ферросплавы, уголь, удобрения', lg_truck_for: 'свежие фрукты, сухофрукты, ковры, срочные партии до 20 т',
       lg_inc: 'Базисы поставки (Incoterms 2020)', lg_docs: 'Документы для сделки', lg_docs_ir: 'Экспорт из Ирана', lg_docs_kz: 'Экспорт из Казахстана',
       lg_pay: 'Расчёты', lg_pay_text: 'Платежи между странами проходят в национальных валютах (тенге / риал) через уполномоченные банки, по аккредитиву или с частичной предоплатой. Платформа не проводит платежи: она фиксирует условия сделки и подключает партнёров по расчётам и таможенному оформлению.',
-      ab_title: 'О платформе', ab_lede: 'Caspian Bridge — B2B-маркетплейс для торговли между Ираном и Казахстаном. Каталог из 46 позиций собран по реальному списку экспортно-импортных товаров коридора: 29 позиций из Ирана и 17 из Казахстана.',
+      ab_title: 'О платформе', ab_lede: 'Khazar Bridge — B2B-маркетплейс для торговли между Ираном и Казахстаном. Каталог из 46 позиций собран по реальному списку экспортно-импортных товаров коридора: 29 позиций из Ирана и 17 из Казахстана.',
       ab_how: 'Как проходит сделка', ab_for: 'Для кого', ab_buyers: 'Импортёрам', ab_sellers: 'Экспортёрам', ab_model: 'Модель платформы', ab_road: 'Дорожная карта', ab_src: 'Источники цен и фото',
       ab_buyers_t: 'Сравнение цен по базису, спецификации и MOQ, запрос котировки нескольким поставщикам сразу, расчёт полной стоимости партии с фрахтом.',
       ab_sellers_t: 'Витрина с проверенным статусом, входящие запросы из соседней страны, поддержка по документам, сертификации и логистике.',
@@ -101,7 +101,7 @@
       lg_sea_for: 'grain, flour, bitumen, building materials, metals — bulk and containers', lg_rail_for: 'wagon lots: grain, ferroalloys, coal, fertilizers', lg_truck_for: 'fresh fruit, dried fruit, carpets, urgent lots up to 20 t',
       lg_inc: 'Delivery terms (Incoterms 2020)', lg_docs: 'Deal documents', lg_docs_ir: 'Export from Iran', lg_docs_kz: 'Export from Kazakhstan',
       lg_pay: 'Payments', lg_pay_text: 'Cross-border payments run in national currencies (tenge / rial) through authorised banks, by letter of credit or with partial prepayment. The platform does not process payments: it records deal terms and connects settlement and customs partners.',
-      ab_title: 'About the platform', ab_lede: 'Caspian Bridge is a B2B marketplace for trade between Iran and Kazakhstan. The 46-product catalogue follows the corridor’s actual export–import list: 29 lines from Iran and 17 from Kazakhstan.',
+      ab_title: 'About the platform', ab_lede: 'Khazar Bridge is a B2B marketplace for trade between Iran and Kazakhstan. The 46-product catalogue follows the corridor’s actual export–import list: 29 lines from Iran and 17 from Kazakhstan.',
       ab_how: 'How a deal runs', ab_for: 'Who it is for', ab_buyers: 'Importers', ab_sellers: 'Exporters', ab_model: 'Platform model', ab_road: 'Roadmap', ab_src: 'Price and photo sources',
       ab_buyers_t: 'Compare prices by basis, specification and MOQ, request quotes from several suppliers at once, cost a full lot with freight.',
       ab_sellers_t: 'A storefront with verified status, inbound requests from the neighbouring market, support on documents, certification and logistics.',

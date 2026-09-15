@@ -1,4 +1,4 @@
-/* Caspian Bridge — catalogue data. Prices are indicative export levels (USD), mid-2026.
+/* Khazar Bridge — catalogue data. Prices are indicative export levels (USD), mid-2026.
    Sources: supplier price lists, APK-Inform, Tridge, LME references; "est" where no public quote existed. */
 window.CB_DATA = {
   asOf: '2026-09-13',
