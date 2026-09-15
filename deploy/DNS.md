@@ -1,5 +1,10 @@
 # DNS для khazarbridge.kz и khazarbridge.com
 
+> **Решение 15.09.2026:** хостинг — VPS на hoster.kz (вариант B ниже), платформа, а не статика. Файлы выкатки — `deploy/platform/`.
+>
+> **⚠️ Cloudflare-прокси не включать.** Cloudflare ограничивает обслуживание Ирана: оранжевое облако может отрезать иранских посетителей, ради которых мы и уходим с Vercel. Только DNS-only, A-записи прямо на IP сервера.
+
+
 Основной хостинг в Казахстане (доступен из Ирана и КЗ без VPN). Vercel оставляем зеркалом на khazarbridge.vercel.app.
 
 ## Вариант A — Plesk на ps.kz (загрузка архива dist/khazarbridge-site-*.zip в httpdocs)
